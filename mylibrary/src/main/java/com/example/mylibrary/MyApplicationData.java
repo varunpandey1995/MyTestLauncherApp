@@ -1,5 +1,6 @@
 package com.example.mylibrary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -24,26 +25,26 @@ import java.util.Comparator;
 import java.util.List;
 
 public class MyApplicationData {
- public static List<AppInfo>appsList;
-    public static List<AppInfo> getMyAppsData(Context context){
+ private static List<MyAppInfo>appsList;
+    public static List<MyAppInfo> getMyAppInfoList(Context context){
         PackageManager pManager = context.getPackageManager();
 
-        appsList = new ArrayList<AppInfo>();
+        appsList = new ArrayList<MyAppInfo>();
 
         Intent i = new Intent(Intent.ACTION_MAIN, null);
         i.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> allApps = pManager.queryIntentActivities(i, 0);
 
         for (ResolveInfo ri : allApps) {
-            AppInfo app = new AppInfo();
+            MyAppInfo app = new MyAppInfo();
             app.label = ri.loadLabel(pManager);
             app.packageName = ri.activityInfo.packageName;
 
             Log.i(" Log package ",app.packageName.toString());
             app.icon = ri.activityInfo.loadIcon(pManager);
-            Collections.sort(appsList, new Comparator<AppInfo>() {
+            Collections.sort(appsList, new Comparator<MyAppInfo>() {
                 @Override
-                public int compare(AppInfo lhs, AppInfo rhs) {
+                public int compare(MyAppInfo lhs, MyAppInfo rhs) {
                     // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
                     return lhs.label.toString().compareTo(rhs.label.toString());
                 }
