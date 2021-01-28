@@ -2,6 +2,7 @@ package com.example.mylibrary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ import java.util.List;
 public class MyApplicationData {
  private static List<MyAppInfo>appsList;
     public static List<MyAppInfo> getMyAppInfoList(Context context){
-        PackageManager pManager = getActivity().getPackageManager();
+        PackageManager pManager = context.getPackageManager();
 
         appsList = new ArrayList<MyAppInfo>();
 
