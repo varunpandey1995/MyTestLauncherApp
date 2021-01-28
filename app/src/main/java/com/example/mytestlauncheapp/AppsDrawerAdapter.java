@@ -3,6 +3,7 @@ package com.example.mytestlauncheapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ public class AppsDrawerAdapter extends RecyclerView.Adapter<AppsDrawerAdapter.Vi
 
         TextView textView = holder.textView;
         textView.setText(appLabel);
+        textView.setTextColor(R.color.black);
         ImageView imageView = holder.img;
         imageView.setImageDrawable(appIcon);
         holder.ll_click.setOnClickListener(new View.OnClickListener() {
