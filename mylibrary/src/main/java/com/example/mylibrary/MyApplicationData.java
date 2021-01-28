@@ -1,11 +1,32 @@
 package com.example.mylibrary;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MyApplicationData {
  public static List<AppInfo>appsList;
-    public static List<AppInfo> getMyAppsData(){
-        PackageManager pManager = getActivity().getPackageManager();
+    public static List<AppInfo> getMyAppsData(Context context){
+        PackageManager pManager = context.getPackageManager();
 
         appsList = new ArrayList<AppInfo>();
 
