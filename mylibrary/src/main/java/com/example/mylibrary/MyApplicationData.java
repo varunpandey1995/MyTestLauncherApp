@@ -27,7 +27,17 @@ import java.util.List;
 
 public class MyApplicationData {
  private static List<MyAppInfo>appsList;
-    public static List<MyAppInfo> getMyAppInfoList(Context context){
+
+ private static MyApplicationData myApplicationData= new MyApplicationData();
+
+ public MyApplicationData() {
+    }
+
+ public static MyApplicationData getInstance(){
+     return myApplicationData;
+ }
+
+    public  List<MyAppInfo> getMyAppInfoList(Context context){
         PackageManager pManager = context.getPackageManager();
 
         appsList = new ArrayList<MyAppInfo>();
